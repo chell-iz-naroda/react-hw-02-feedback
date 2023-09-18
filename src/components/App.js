@@ -4,6 +4,7 @@ import { Section } from './Section/Section';
 import { FeedbackOptions } from './Feedback/FeedbackOptions';
 import { Statistic } from './Statistics/Statistic';
 import { Notification } from './Notification';
+import { Layout } from 'Layout';
 
 export class App extends Component {
 
@@ -28,18 +29,20 @@ export class App extends Component {
     return Math.round((this.state.good / this.countTotalFeedback()) * 100);
   }
 
-  
+
 
 
   render() {
     return (
       <>
-        <Section title="Please leave feedback">
-          <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.onLeaveFeedback} />
-        </Section>
-        <Section title="Statistic">
-          {this.countTotalFeedback() ? <Statistic good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.countTotalFeedback()} positivePercentage={this.countPositiveFeedbackPercentage()} /> : <Notification message="There is no feedback" />}
-        </Section>
+        <Layout>
+          <Section title="Please leave feedback">
+            <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.onLeaveFeedback} />
+          </Section>
+          <Section title="Statistic">
+            {this.countTotalFeedback() ? <Statistic good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.countTotalFeedback()} positivePercentage={this.countPositiveFeedbackPercentage()} /> : <Notification message="There is no feedback" />}
+          </Section>
+        </Layout>
       </>
     );
   }
