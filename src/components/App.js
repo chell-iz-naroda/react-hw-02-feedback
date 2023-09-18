@@ -28,7 +28,7 @@ export class App extends Component {
     return Math.round((this.state.good / this.countTotalFeedback()) * 100);
   }
 
-
+  
 
 
   render() {

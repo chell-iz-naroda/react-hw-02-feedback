@@ -1,4 +1,4 @@
-import { Button, ButtonNeutral, ButtonBad } from "./FeedbackOptions.styled";
+import { Button } from "./FeedbackOptions.styled";
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
     return (
